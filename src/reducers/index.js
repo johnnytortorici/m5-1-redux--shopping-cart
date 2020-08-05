@@ -7,7 +7,9 @@ export default function cartReducer(state = initialState, action) {
         ...state,
         [action.item.id]: {
           ...action.item,
-          quantity: 1,
+          quantity: state[action.item.id]
+            ? state[action.item.id].quantity + 1
+            : 1,
         },
       };
     }
@@ -15,3 +17,5 @@ export default function cartReducer(state = initialState, action) {
       return state;
   }
 }
+
+export const getStoreItemArray = (state) => Object.values(state);

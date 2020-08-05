@@ -1,15 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 
-const CartItem = () => {
+const CartItem = ({ id, title, price, quantity }) => {
   return (
     <Wrapper>
       <ItemHeader>
-        <ItemName>Hello World</ItemName>
+        <ItemName>{title}</ItemName>
         <RemoveBtn>x</RemoveBtn>
       </ItemHeader>
       <Qty>
-        Quantity: <QtyInput type="text" />
+        Quantity: <QtyInput type="text" value={quantity} readOnly />
       </Qty>
     </Wrapper>
   );
